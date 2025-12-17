@@ -10,26 +10,37 @@ export default function HomePage() {
     console.log(viaggiatori)
     return (
         <>
-            <h1>Aggiungere la lista dei viaggi qui!!</h1>
-            {//faccio un map dei viaggi per stamparli a schermo e controllare se i dati vengono aquisiti
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Destinazione</th>
-                            <th scope="col">Data Partenza</th>
-                            <th scope="col">Data Ritorno</th>
-                        </tr>
-                        <tbody>
+            <div className=" d-flex justify-content-center">
+                <h1>Travel list</h1>
+            </div>
 
-                        </tbody>
-                    </thead>
-                </table>
-                
-                
-                travel.map(el => (
-            <h2 key={el.id}>{el.destinazione}</h2>
-            ))
-            }
+
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Destinazione</th>
+                        <th scope="col">Data Partenza</th>
+                        <th scope="col">Data Ritorno</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {travel.map(el => (
+                        <tr>
+                            <td>{el.destinazione}</td>
+                            <td>{el.dataPartenza}</td>
+                            <td>{el.dataRitorno}</td>
+                            <td><button type="button" className="btn btn-primary">view details</button></td>
+                        </tr>
+
+                    ))}
+
+                </tbody>
+
+            </table>
+
+
+
         </>
     )
 }
