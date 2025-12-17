@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import DefoultLayout from "./layout/DefoultLayout"
-import HomePage from "./pages/Homepage"
+import HomePage from "./pages/HomePage"
 import AddTravel from "./pages/AddTravel"
+import DetailTravel from './pages/DetailTravel'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route element={<DefoultLayout />}>
             <Route path='/' element={<HomePage />} />
             <Route path="/add" element={<AddTravel />} />
+            <Route path="/detail" element={<DetailTravel />} />
           </Route>
         </Routes>
       </BrowserRouter>
