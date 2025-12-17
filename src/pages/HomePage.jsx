@@ -1,6 +1,7 @@
 import { useState } from "react"
 import clienti from "../data/clienti" //prendo la lista clienti dal file clienti.jsx
 import viaggi from "../data/viaggi" //prendo la lista dei viaggi nel file viaggi.jsx
+import { Link } from "react-router-dom"
 
 export default function HomePage() {
     const viaggiatori = clienti
@@ -30,7 +31,7 @@ export default function HomePage() {
                             <td>{el.destinazione}</td>
                             <td>{el.dataPartenza}</td>
                             <td>{el.dataRitorno}</td>
-                            <td><button type="button" className="btn btn-primary">view details</button></td>
+                            <td><Link to={`/detail/${travel.id}`} className="btn btn-primary">view details</Link></td>
                         </tr>
 
                     ))}
