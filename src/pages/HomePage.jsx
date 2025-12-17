@@ -1,11 +1,11 @@
 import { useState } from "react"
 import clienti from "../data/clienti" //prendo la lista clienti dal file clienti.jsx
 import viaggi from "../data/viaggi" //prendo la lista dei viaggi nel file viaggi.jsx
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export default function HomePage() {
     const viaggiatori = clienti
-
+    const { id } = useParams();
     const [travel, setTravel] = useState(viaggi) //inserisco nello state di travel la lista di viaggi importata
 
     console.log(viaggiatori)
