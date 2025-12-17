@@ -1,20 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import HomePage from "../pages/HomePage"
-import DefaultLayout from "../layout/DefaultLayout"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import DefoultLayout from "./layout/DefoultLayout"
+import HomePage from "./pages/Homepage"
+import AddTravel from "./pages/AddTravel"
+
 function App() {
 
 
   return (
     <>
-
       <BrowserRouter>
         <Routes>
-          <Route element={<DefaultLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/add" element={<h1>Ciao</h1>} />
+          <Route element={<DefoultLayout />}>
+            <Route path='/' element={<HomePage />} />
+            <Route path="/add" element={<AddTravel />} />
           </Route>
         </Routes>
       </BrowserRouter>
+
     </>
   )
 }
