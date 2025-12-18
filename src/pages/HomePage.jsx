@@ -2,10 +2,11 @@ import { useState } from "react"
 import clienti from "../data/clienti" //prendo la lista clienti dal file clienti.jsx
 import viaggi from "../data/viaggi" //prendo la lista dei viaggi nel file viaggi.jsx
 import { Link, useParams } from "react-router-dom"
+import { useGlobalProvider } from "../context/GlobalContext"
 
 export default function HomePage() {
     const viaggiatori = clienti
-    const [travel, setTravel] = useState(viaggi) //inserisco nello state di travel la lista di viaggi importata
+    const { travel, setTravel } = useGlobalProvider()
 
     console.log(viaggiatori)
     return (
@@ -15,7 +16,7 @@ export default function HomePage() {
             </div>
 
 
-            <table className="table">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Destinazione</th>
