@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom"
 
 export default function HomePage() {
     const viaggiatori = clienti
-    const { id } = useParams();
     const [travel, setTravel] = useState(viaggi) //inserisco nello state di travel la lista di viaggi importata
 
     console.log(viaggiatori)
@@ -31,7 +30,7 @@ export default function HomePage() {
                             <td>{el.destinazione}</td>
                             <td>{el.dataPartenza}</td>
                             <td>{el.dataRitorno}</td>
-                            <td><Link to={`/detail/${travel.id}`} className="btn btn-primary">view details</Link></td>
+                            <td><Link to={`/detail/${el.id}`} className="btn btn-primary">view details</Link></td>
                         </tr>
 
                     ))}

@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import DefoultLayout from "./layout/DefoultLayout"
 import HomePage from "./pages/HomePage"
 import AddTravel from "./pages/AddTravel"
-import DetailTravel from './pages/DetailTravel'
+import DetailTravel from "./pages/DetailTravel"
 
 function App() {
 
