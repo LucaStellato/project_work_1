@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import DefoultLayout from "./layout/DefoultLayout"
-import HomePage from "./pages/HomePage"
-import AddTravel from "./pages/AddTravel"
-import DetailTravel from "./pages/DetailTravel"
 import { GlobalProvider } from "./context/GlobalContext"
+import DefoultLayout from "./layout/DefoultLayout"
+import HomePage from "./pages/Homepage"
+import AddTravel from "./pages/AddTravel"
+import DetailTravel from "./pages/DetailsTravel"
+
 
 function App() {
 

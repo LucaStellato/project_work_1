@@ -1,20 +1,36 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import viaggi from "../data/viaggi"
-import { useState } from "react"
+import { Link, useParams } from "react-router-dom"
 import { useGlobalProvider } from "../context/GlobalContext"
+import { useState } from "react"
+
+
 
 export default function DetailTravel() {
+
+    const [search, setSearch] = useState("")
     const { id } = useParams()
-    const { travelers } = useGlobalProvider()
+    const { travelers, setTravelers } = useGlobalProvider()
 
     const traveler = travelers.filter(el => el.viaggio_id == id)
 
-    console.log(traveler)
+    // console.log(traveler)
+
+    console.log(search)
+
+
+    const filteredTraveler = traveler.filter(el =>
+        (el.cognome + " " + el.nome)
+            .toLowerCase()
+            .includes(search.toLowerCase())
+    );
+
+
+
+
     return (
         <>
+            <input type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
             {
-                traveler.map(el => (
+                filteredTraveler.map(el => (
                     <div key={el.id} className="accordion mt-4" id="accordionExample">
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="headingOne">
@@ -37,17 +53,17 @@ export default function DetailTravel() {
                             >
                                 <div className="accordion-body">
                                     <div className="row row-cols-5">
-                                        <div className="col fw-bold">Nome</div>
-                                        <div className="col fw-bold">Cognome</div>
-                                        <div className="col fw-bold">Email</div>
-                                        <div className="col fw-bold">Codice Fiscale</div>
-                                        <div className="col">{el.nome}</div>
-                                        <div className="col">{el.email}</div>
+                                        <div className="col fw-bold">nome </div>
+                                        <div className="col fw-bold">cognome</div>
+                                        <div className="col fw-bold"> numero</div>
+                                        <div className="col fw-bold">e-mail</div>
+                                        <div className="col fw-bold">codice fiscale</div>
+                                        <div className="col">{el.nome} </div>
                                         <div className="col">{el.cognome}</div>
+                                        <div className="col"> {el.telefono}</div>
+                                        <div className="col">{el.email}</div>
                                         <div className="col">{el.codiceFiscale}</div>
-                                        <div className="col">{el.telefono}</div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
